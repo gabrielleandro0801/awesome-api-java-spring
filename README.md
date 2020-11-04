@@ -1,2 +1,2 @@
 # awesome-api-java-spring
-Estudos de APIs - Consumindo ViaCep em Java
+Estudos de APIs - Consumindo Cotações de Moedas em Java
