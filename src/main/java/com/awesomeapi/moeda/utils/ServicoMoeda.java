@@ -1,17 +1,13 @@
 package com.awesomeapi.moeda.utils;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class ServicoMoeda {
@@ -33,7 +29,8 @@ public class ServicoMoeda {
             String jsonEmString = Util.converteJsonEmString(resposta);
             Gson gson = new Gson();
             List<Moeda> lista = gson.fromJson(jsonEmString, new TypeToken<ArrayList<Moeda>>(){}.getType());
-
+            //Moeda moeda = gson.fromJson(jsonEmString, Moeda.class);
+            //Moeda moeda = (Moeda) (gson.fromJson(jsonEmString, new TypeToken<ArrayList<Moeda>>(){}.getType()))[0];
             Moeda moeda = lista.remove(0);
             //gson.fromJson(jsonEmString, Moeda.class);
             //Moeda moeda = new Moeda();

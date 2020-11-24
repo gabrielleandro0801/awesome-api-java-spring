@@ -18,10 +18,10 @@ public class MoedaApplication {
 		System.out.println("##########################");
 
 		while (true){
-			System.out.println("\nEscolha a Moeda: ");
-			System.out.println("<1> Dolar Comercial ");
-			System.out.println("<2> Dolar Turismo ");
-			System.out.println("<3> Euro ");
+			System.out.println("\nEscolha a Moeda:");
+			System.out.println("<1> Dolar Comercial");
+			System.out.println("<2> Dolar Turismo");
+			System.out.println("<3> Euro");
 			System.out.println("Sua opcao:  ");
 			int opcao = scanner.nextInt();
 
