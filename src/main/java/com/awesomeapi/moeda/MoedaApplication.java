@@ -1,8 +1,8 @@
 package com.awesomeapi.moeda;
 
-import com.awesomeapi.moeda.utils.Moeda;
-import com.awesomeapi.moeda.utils.ServicoMoeda;
-import org.springframework.boot.SpringApplication;
+import com.awesomeapi.moeda.entity.MoedaEntity;
+import com.awesomeapi.moeda.service.MoedaService;
+import com.awesomeapi.moeda.utils.Constants;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
@@ -12,10 +12,12 @@ public class MoedaApplication {
 
 	public static void main(String[] args) throws Exception {
 		//SpringApplication.run(MoedaApplication.class, args);
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("##########################");
 		System.out.println("### Consulta de Moedas ###");
 		System.out.println("##########################");
+		MoedaService moedaService = new MoedaService();
 
 		while (true){
 			System.out.println("\nEscolha a Moeda:");
@@ -25,18 +27,18 @@ public class MoedaApplication {
 			System.out.println("Sua opcao:  ");
 			int opcao = scanner.nextInt();
 
-			Moeda moeda = new Moeda();
+			MoedaEntity moeda = new MoedaEntity();
 			if(opcao == 1){
-				moeda = ServicoMoeda.buscaMoeda("USD-BRL");
+				moeda = moedaService.buscaMoeda(Constants.USD_BRL);
 			}else if(opcao == 2){
-				moeda = ServicoMoeda.buscaMoeda("USDT-BRL");
+				moeda = moedaService.buscaMoeda(Constants.USDT_BRL);
 			}else if(opcao == 3){
-				moeda = ServicoMoeda.buscaMoeda("EUR-BRL");
+				moeda = moedaService.buscaMoeda(Constants.EUR_BRL);
 			}else{
 				System.out.println("Opcao invalida!");
 			}
 
-			System.out.println("Dados do(a) " + moeda.getName());
+			System.out.println("Dados do(a) " + moeda.getCode() + " - " + moeda.getName());
 			System.out.println("Valor atual R$" + String.format("%.2f", moeda.getBid()));
 			System.out.println("\nDeseja buscar novamente?\n<0> Não\n<1> Sim\nSua opcao: ");
 
